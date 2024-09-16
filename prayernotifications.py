@@ -1,26 +1,32 @@
 import discord,json,requests,datetime,asyncio
 from discord.ext import commands,tasks
 from bs4 import BeautifulSoup
+from googlesearch import search
 
 ia=commands.Bot(command_prefix='.', intents=discord.Intents().all())  
 
 @ia.event
 async def on_ready():
     print(f"{ia.user.name} is connected")
-    ia.get_channel(0000000000000).send("connected")#replace by your ID Channel
+    ia.get_channel(0000000000000).send("connected")#replace by your Channel ID
     AutoPrayer.start()
 
-@ia.command(name='pray')#Start receiving prayer Notifications by assigning your city or by modifying it and add link to the json file
-async def PrayDB(ctx,*,lien):
+@ia.command(name='pray')#Start receiving prayer Notifications by assigning your city or by modifying it
+async def PrayDB(ctx,*,city):
     with open("praydb.json",'r') as f:
         data=json.load(f)
-    if str(ctx.author.id) not in data and lien.startswith("https://www.muslimpro.com/en/locate?country_code="):#Assigning your MP city link
+    lien=''
+    for i in search(f"Prayer Times {city} site:muslimpro.com",tld="co.in",num=10,stop=10,pause=2):#Search through Google different results of your city
+        if i.startswith("https://prayer-times.muslimpro.com/") and i[-7:].isnumeric():
+           lien=i
+           break
+    if str(ctx.author.id) not in data and lien!='':#Assigning your MP city link
         page=requests.get(lien)
         data[str(ctx.author.id)]={}
         data[str(ctx.author.id)]['link']=lien
         data[str(ctx.author.id)]['location']=BeautifulSoup(page.content, 'html.parser').find(class_='location').text
         await ctx.send(f"Vous recevrez dorénavant les notifications de prière de {data[str(ctx.author.id)]['location']} chaque jour")
-    elif lien.startswith("https://www.muslimpro.com/en/locate?country_code=") and data[str(ctx.author.id)]['link']!=lien:#Modofying your MP city link
+    elif data[str(ctx.author.id)]['link']!=lien and lien!='':#Modifying your MP city link
         page=requests.get(lien)
         data[str(ctx.author.id)]['link']=lien
         await ctx.send(f"Modification de la ville de {data[str(ctx.author.id)]['location']}, vous recevrez dorénavant les notifications de prière de {BeautifulSoup(page.content, 'html.parser').find(class_='location').text}")
@@ -62,7 +68,7 @@ def sortHor(nb):#Sort the different timetables of one single Prayer by ascending
     hor={}
     for i in data:
         page=requests.get(data[i]['link'])
-        hor.update({i:BeautifulSoup(page.content, 'html.parser').find_all('p', class_='praytime')[nb].text})
+        hor.update({i:BeautifulSoup(page.content, 'html.parser').find_all("span",class_="jam-solat")[nb].text})
     return sorted(hor.items(), key=lambda x:x[1])
 
 ia.run("YourToken")
