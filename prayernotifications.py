@@ -45,7 +45,7 @@ async def StopDB(ctx,*args):
         await ctx.send("Vous ne recevrez désormais plus de notifications de prière")
     else:#You didn't receive notifications before
         await ctx.send("Vous ne recevez pas de notifications de prière")
-    with open("/home/adam/praydb.json",'w') as f:
+    with open("praydb.json",'w') as f:
         json.dump(data,f)
 
 @tasks.loop(time=datetime.time(1))#Automate the task everyday at 1 am
