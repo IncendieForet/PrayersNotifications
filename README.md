@@ -60,7 +60,7 @@ To stop receiving notifications, you can use the **pstop** command like this :
 
 `.pstop`
 
-![stop](https://cdn.discordapp.com/attachments/1204126618130452521/1288959450178392064/stop.png?ex=66f71488&is=66f5c308&hm=d77fa38acb4b34ec6c1c6f0cfe5053139819c396caef326934e39c0ea9ac824e&)
+![stop](https://media.discordapp.net/attachments/1204126618130452521/1288959450178392064/stop.png?ex=68566c48&is=68551ac8&hm=572e4429945bb8b7fb3e1f360d53d471fefcea1e56a161bf83f51342a3102881&=&format=webp&quality=lossless&width=556&height=151)
 ## Installation
 ### Clone the repository :
 `git clone https://github.com/IncendieForet/PrayersNotifications.git`
