@@ -16,7 +16,7 @@ Use the **pray** command followed with the name of the city you are currently lo
 
 Here's how it looks when you'll start receiving Discord Notifications :
 
-![start](https://cdn.discordapp.com/attachments/1204126618130452521/1288959449947574323/start.png?ex=66f71488&is=66f5c308&hm=a5b321d6b37cd3ea4cdea6201dc62679a33f541d834359ec88e26f33dad3c412&)
+![start](https://media.discordapp.net/attachments/1204126618130452521/1288959449947574323/start.png?ex=68566c48&is=68551ac8&hm=af5c609da63d39075117a0e6954eddcc121fee5b8d80953116c96e35220fed02&=&format=webp&quality=lossless&width=701&height=139)
 
 We can observe above that you can **specify your country** if you are having trouble finding your city
 
@@ -29,7 +29,7 @@ The bot will send Prayer start notifications based on your location.
 
 Example of a notification displayed on Discord :
 
-![notifications](https://cdn.discordapp.com/attachments/1204126618130452521/1288959449649647658/notifications.png?ex=66f71488&is=66f5c308&hm=4f6c4d90dd066fc98da4d3f9aae014fa44b4da51951ddf465b03c57b29e041a3&)
+![notifications](https://media.discordapp.net/attachments/1204126618130452521/1288959449649647658/notifications.png?ex=68566c48&is=68551ac8&hm=a8d333b8057f509380038792b0c13ad5bd1bcd1ab70c727ac1cfb4f9188c4441&=&format=webp&quality=lossless&width=435&height=387)
 
 
 ### **3. Change Location Settings**
@@ -44,7 +44,7 @@ Use the same **pray** command as when starting the bot, but specify the new city
 The bot will automatically update the location information and save it to the JSON file without needing a restart.
 The new location will be applied immediately for the upcoming notifications. 
 
-![modification](https://cdn.discordapp.com/attachments/1204126618130452521/1288959449352114246/modifications.png?ex=66f71488&is=66f5c308&hm=168da45516519548f95ca1b0c310bc23650237728669754ba8ed939463593ba1&)
+![modification](https://media.discordapp.net/attachments/1204126618130452521/1288959449352114246/modifications.png?ex=68566c48&is=68551ac8&hm=9b9b60069ace854259e34c67bc27689707f4ed0ceb0d8d8275637079aad74fc6&=&format=webp&quality=lossless&width=902&height=144)
 
 Example of the JSON format we're using :
 
